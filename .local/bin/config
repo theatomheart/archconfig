@@ -58,6 +58,6 @@ case $chosen in
 #	surf)		SurfStyles ;;
 	tmux)		openfile ~/.config/tmux/tmux.conf ;;
 #	vim)		openfile ~/.vimrc ;;
-	xprofile)	openfile ~/.xprofile ;;
+	xprofile)	$EDITOR ~/.config/x11/xprofile ;;
 	zathura)	openfile ~/.config/zathura/zathurarc ;;
 esac

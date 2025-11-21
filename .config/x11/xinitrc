@@ -13,6 +13,9 @@ if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
 else
 	. "$HOME/.xprofile"
 fi
+# Load another file for extra startup purposes, if needed.
+[ -f ~/.config/x11/autostart ] && . ~/.config/x11/autostart
+
 # Activate dbus variables
 dbus-update-activation-environment --all
 dbus-launch ssh-agent dwm
