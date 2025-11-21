@@ -1,47 +1,36 @@
 #!/bin/sh
-# A menu script for conveniently accessing config files
-# Bound to Mod+F2
+# A menu script for quickly editing common config files
 
-# Each menu choice has a file to edit
-# or command to run in the MenuCommands() function
-#MenuChoices="alias\nappearance\naudio\nbackup\nbar\nbash\nbookmarks\ncontacts\ndisks\nfirefox\nhosts\ninput\nmpd\nmpv\nmutt\nncmpcpp\nnewsboat\nprinters\nprofile\nranger\nrss\nscreens\nscripts\nssh\nsurf\ntmux\nvim\nxprofile\nzathura"
 MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nxprofile\nzathura"
 
 chosen=$1
 
-case $(tty) in
-	*tty*)	runprefix="$TERMINAL -e"
-		mymenu="dwmenu Config" ;;
-	*)	runprefix=
-		mymenu="fzf --prompt="Config"" ;;
-esac
-
-[ -z $chosen ] && chosen=$(echo "$MenuChoices" | sort -n | $mymenu)
+[ -z $chosen ] && chosen=$(echo "$MenuChoices" | sort -n | fzf --prompt="Config ")
 
 case $chosen in
 	alias)		$EDITOR ~/.config/shell/aliasrc ;;
-#	appearance)	lxappearance &disown ;;
-#	audio)		pavucontrol &disown ;;
-#	backup)		openfile ~/.local/bin/backup ;;
-#	bar)		openfile ~/.local/bin/dwmbar ;;
 	bash)		$EDITOR ~/.bashrc ;;
-#	bookmarks)	openfile ~/.config/bookmarks ;;
-#	contacts)	openfile ~/.config/contacts ;;
-#	firefox)	firefox --preferences &disown ;;
-#	input)		lxinput &>/dev/null &disown ;;
 	lf)		$EDITOR ~/.config/lf/lfrc ;;
 	mpd)		$EDITOR ~/.config/mpd/mpd.conf ;;
 	mpv)		$EDITOR ~/.config/mpv/input.conf ;;
-#	mutt)		openfile ~/.config/mutt/muttrc ;;
 	ncmpcpp)	$EDITOR ~/.config/ncmpcpp/config ;;
 	newsboat)	$EDITOR ~/.config/newsboat/config ;;
 	profile)	$EDITOR ~/.profile ;;
 	rss)		$EDITOR ~/.config/newsboat/urls ;;
-#	screens)	screen ;;
-#	scripts)	$runprefix $FILE ~/.local/bin ;;
 	ssh)		$EDITOR ~/.ssh/config ;;
 	tmux)		$EDITOR ~/.config/tmux/tmux.conf ;;
-#	vim)		openfile ~/.vimrc ;;
 	xprofile)	$EDITOR ~/.config/x11/xprofile ;;
 	zathura)	$EDITOR ~/.config/zathura/zathurarc ;;
+#	appearance)	lxappearance &disown ;;
+#	audio)		pavucontrol &disown ;;
+#	backup)		openfile ~/.local/bin/backup ;;
+#	bar)		openfile ~/.local/bin/dwmbar ;;
+#	bookmarks)	openfile ~/.config/bookmarks ;;
+#	contacts)	openfile ~/.config/contacts ;;
+#	firefox)	firefox --preferences &disown ;;
+#	input)		lxinput &>/dev/null &disown ;;
+#	mutt)		openfile ~/.config/mutt/muttrc ;;
+#	screens)	screen ;;
+#	scripts)	$runprefix $FILE ~/.local/bin ;;
+#	vim)		openfile ~/.vimrc ;;
 esac
