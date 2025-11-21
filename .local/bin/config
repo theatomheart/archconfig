@@ -5,19 +5,7 @@
 # Each menu choice has a file to edit
 # or command to run in the MenuCommands() function
 #MenuChoices="alias\nappearance\naudio\nbackup\nbar\nbash\nbookmarks\ncontacts\ndisks\nfirefox\nhosts\ninput\nmpd\nmpv\nmutt\nncmpcpp\nnewsboat\nprinters\nprofile\nranger\nrss\nscreens\nscripts\nssh\nsurf\ntmux\nvim\nxprofile\nzathura"
-MenuChoices="alias\nbash\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nxprofile\nzathura"
-
-# Choosing "surf" lists CSS choices
-SurfStyles() {
-	sstyle="default.css"
-	chosen=$(echo -e "Dark Mode\nSolarized" | $mymenu) || exit
-	case $chosen in
-		"Dark Mode")	sstyle="dark.css" ;;
-		"Solarized")	sstyle="solarized.css" ;;
-	esac
-	cp ~/.surf/styles/$sstyle ~/.surf/styles/default.css &&
-		notify-send "Surf stylesheet changed:" "$chosen"
-	exit ;}
+MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nxprofile\nzathura"
 
 chosen=$1
 
@@ -39,25 +27,21 @@ case $chosen in
 	bash)		$EDITOR ~/.bashrc ;;
 #	bookmarks)	openfile ~/.config/bookmarks ;;
 #	contacts)	openfile ~/.config/contacts ;;
-#	disks)		sudo gnome-disks &disown ;;
 #	firefox)	firefox --preferences &disown ;;
-#	hosts)		$runprefix sudo $EDITOR /etc/hosts ;;
 #	input)		lxinput &>/dev/null &disown ;;
-	mpd)		openfile ~/.config/mpd/mpd.conf ;;
-	mpv)		openfile ~/.config/mpv/input.conf ;;
+	lf)		$EDITOR ~/.config/lf/lfrc ;;
+	mpd)		$EDITOR ~/.config/mpd/mpd.conf ;;
+	mpv)		$EDITOR ~/.config/mpv/input.conf ;;
 #	mutt)		openfile ~/.config/mutt/muttrc ;;
-	ncmpcpp)	openfile ~/.config/ncmpcpp/config ;;
-	newsboat)	openfile ~/.config/newsboat/config ;;
-#	printers)	system-config-printer &disown ;;
-	profile)	openfile ~/.profile ;;
-#	ranger)		openfile ~/.config/ranger/rc.conf ;;
-	rss)		openfile ~/.config/newsboat/urls ;;
+	ncmpcpp)	$EDITOR ~/.config/ncmpcpp/config ;;
+	newsboat)	$EDITOR ~/.config/newsboat/config ;;
+	profile)	$EDITOR ~/.profile ;;
+	rss)		$EDITOR ~/.config/newsboat/urls ;;
 #	screens)	screen ;;
 #	scripts)	$runprefix $FILE ~/.local/bin ;;
-	ssh)		openfile ~/.ssh/config ;;
-#	surf)		SurfStyles ;;
-	tmux)		openfile ~/.config/tmux/tmux.conf ;;
+	ssh)		$EDITOR ~/.ssh/config ;;
+	tmux)		$EDITOR ~/.config/tmux/tmux.conf ;;
 #	vim)		openfile ~/.vimrc ;;
 	xprofile)	$EDITOR ~/.config/x11/xprofile ;;
-	zathura)	openfile ~/.config/zathura/zathurarc ;;
+	zathura)	$EDITOR ~/.config/zathura/zathurarc ;;
 esac
