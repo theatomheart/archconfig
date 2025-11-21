@@ -41,6 +41,7 @@ alias \
 
 # These common commands are just too long! Abbreviate them.
 alias \
+	tmux="tmux -f ~/.config/tmux/tmux.conf" \
 	ka="killall" \
 	g="git" \
 	trem="transmission-remote" \
