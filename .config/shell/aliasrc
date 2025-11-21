@@ -55,6 +55,7 @@ alias \
 	z="zathura"
 
 alias myconfig="/usr/bin/git --git-dir=$HOME/Projects/archconfig --work-tree=$HOME"
+
 alias upgr="clear ; fastfetch ; sudo pacman -Syyu --noconfirm"
 
 alias \
