@@ -54,9 +54,14 @@ alias \
 	xq="xbps-query" \
 	z="zathura"
 
-alias myconfig="/usr/bin/git --git-dir=$HOME/Projects/archconfig --work-tree=$HOME"
+# Pacman helpers
+alias \
+	progs="pacman -Qet" \
+	orphans="pacman -Qdt" \
+	pacman="sudo pacman" \
+	upgr="fastfetch && sudo pacman -Syyu --noconfirm"
 
-alias upgr="clear ; fastfetch ; sudo pacman -Syyu --noconfirm"
+alias myconfig="/usr/bin/git --git-dir=$HOME/Projects/archconfig --work-tree=$HOME"
 
 alias \
 	lf="lfub" \
