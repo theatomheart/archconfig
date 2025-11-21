@@ -1,0 +1,62 @@
+#!/bin/sh
+# A menu script for conveniently accessing config files
+# Bound to Mod+F2
+
+# Each menu choice has a file to edit
+# or command to run in the MenuCommands() function
+MenuChoices="alias\nappearance\naudio\nbackup\nbar\nbash\nbookmarks\ncontacts\ndisks\nfirefox\nhosts\ninput\nmpd\nmpv\nmutt\nncmpcpp\nnewsboat\nprinters\nprofile\nranger\nrss\nscreens\nscripts\nssh\nsurf\ntmux\nvim\nxprofile\nzathura"
+
+# Choosing "surf" lists CSS choices
+SurfStyles() {
+	sstyle="default.css"
+	chosen=$(echo -e "Dark Mode\nSolarized" | $mymenu) || exit
+	case $chosen in
+		"Dark Mode")	sstyle="dark.css" ;;
+		"Solarized")	sstyle="solarized.css" ;;
+	esac
+	cp ~/.surf/styles/$sstyle ~/.surf/styles/default.css &&
+		notify-send "Surf stylesheet changed:" "$chosen"
+	exit ;}
+
+chosen=$1
+
+case $(tty) in
+	*tty*)	runprefix="$TERMINAL -e"
+		mymenu="dwmenu Config" ;;
+	*)	runprefix=
+		mymenu="fzf --prompt="Config"" ;;
+esac
+
+[ -z $chosen ] && chosen=$(echo "$MenuChoices" | sort -n | $mymenu)
+
+case $chosen in
+	alias)		$EDITOR ~/.config/shell/aliasrc ;;
+	appearance)	lxappearance &disown ;;
+	audio)		pavucontrol &disown ;;
+	backup)		openfile ~/.local/bin/backup ;;
+	bar)		openfile ~/.local/bin/dwmbar ;;
+	bash)		openfile ~/.bashrc ;;
+	bookmarks)	openfile ~/.config/bookmarks ;;
+	contacts)	openfile ~/.config/contacts ;;
+	disks)		sudo gnome-disks &disown ;;
+	firefox)	firefox --preferences &disown ;;
+	hosts)		$runprefix sudo $EDITOR /etc/hosts ;;
+	input)		lxinput &>/dev/null &disown ;;
+	mpd)		openfile ~/.config/mpd/mpd.conf ;;
+	mpv)		openfile ~/.config/mpv/input.conf ;;
+	mutt)		openfile ~/.config/mutt/muttrc ;;
+	ncmpcpp)	openfile ~/.config/ncmpcpp/config ;;
+	newsboat)	openfile ~/.config/newsboat/config ;;
+	printers)	system-config-printer &disown ;;
+	profile)	openfile ~/.profile ;;
+	ranger)		openfile ~/.config/ranger/rc.conf ;;
+	rss)		openfile ~/.config/newsboat/urls ;;
+	screens)	screen ;;
+	scripts)	$runprefix $FILE ~/.local/bin ;;
+	ssh)		openfile ~/.ssh/config ;;
+	surf)		SurfStyles ;;
+	tmux)		openfile ~/.config/tmux/tmux.conf ;;
+	vim)		openfile ~/.vimrc ;;
+	xprofile)	openfile ~/.xprofile ;;
+	zathura)	openfile ~/.config/zathura/zathurarc ;;
+esac
