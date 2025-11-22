@@ -62,7 +62,7 @@ alias \
 	pacman="sudo pacman" \
 	upgr="fastfetch && sudo pacman -Syyu --noconfirm"
 
-alias myconfig="/usr/bin/git --git-dir=$HOME/Projects/archconfig --work-tree=$HOME"
+#alias myconfig="/usr/bin/git --git-dir=$HOME/Projects/archconfig --work-tree=$HOME"
 
 alias \
 	lf="lfub" \

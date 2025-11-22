@@ -15,7 +15,7 @@ case $chosen in
 	mpv)		$EDITOR ~/.config/mpv/input.conf ;;
 	ncmpcpp)	$EDITOR ~/.config/ncmpcpp/config ;;
 	newsboat)	$EDITOR ~/.config/newsboat/config ;;
-	profile)	$EDITOR ~/.profile ;;
+	profile)	$EDITOR ~/.config/shell/profile ;;
 	rss)		$EDITOR ~/.config/newsboat/urls ;;
 	ssh)		$EDITOR ~/.ssh/config ;;
 	tmux)		$EDITOR ~/.config/tmux/tmux.conf ;;
