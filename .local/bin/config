@@ -1,7 +1,21 @@
 #!/bin/sh
 # A menu script for quickly editing common config files
 
-MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nvim\nxprofile\nzathura\nzsh"
+MenuChoices="alias
+bash
+lf
+mpd
+mpv
+ncmpcpp
+newsboat
+profile
+rss
+ssh
+tmux
+vim
+xprofile
+zathura
+zsh"
 
 chosen=$1
 
