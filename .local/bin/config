@@ -1,7 +1,7 @@
 #!/bin/sh
 # A menu script for quickly editing common config files
 
-MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nvim\nxprofile\nzathura"
+MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nvim\nxprofile\nzathura\nzsh"
 
 chosen=$1
 
@@ -22,6 +22,7 @@ case $chosen in
 	vim)		$EDITOR ~/.config/nvim/init.vim ;;
 	xprofile)	$EDITOR ~/.config/x11/xprofile ;;
 	zathura)	$EDITOR ~/.config/zathura/zathurarc ;;
+	zsh)		$EDITOR ~/.config/zsh/.zshrc ;;
 #	appearance)	lxappearance &disown ;;
 #	audio)		pavucontrol &disown ;;
 #	backup)		openfile ~/.local/bin/backup ;;
@@ -33,5 +34,4 @@ case $chosen in
 #	mutt)		openfile ~/.config/mutt/muttrc ;;
 #	screens)	screen ;;
 #	scripts)	$runprefix $FILE ~/.local/bin ;;
-#	vim)		openfile ~/.vimrc ;;
 esac
