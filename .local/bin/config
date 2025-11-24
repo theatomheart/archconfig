@@ -13,6 +13,7 @@ rss
 ssh
 tmux
 vim
+xinit
 xprofile
 zathura
 zsh"
@@ -34,6 +35,7 @@ case $chosen in
 	ssh)		$EDITOR ~/.ssh/config ;;
 	tmux)		$EDITOR ~/.config/tmux/tmux.conf ;;
 	vim)		$EDITOR ~/.config/nvim/init.vim ;;
+	xinit)		$EDITOR ~/.config/x11/xinitrc ;;
 	xprofile)	$EDITOR ~/.config/x11/xprofile ;;
 	zathura)	$EDITOR ~/.config/zathura/zathurarc ;;
 	zsh)		$EDITOR ~/.config/zsh/.zshrc ;;
