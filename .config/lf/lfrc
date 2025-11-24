@@ -58,6 +58,10 @@ cmd open ${{
 
 cmd mkdir $mkdir -p "$@"
 
+cmd zipup ${{
+	tar -cvzf $f.tar.gz $f && notify-send "$f zipped."
+}}
+
 cmd extract ${{
 	clear; tput cup $(($(tput lines)/3)); tput bold
 	set -f
@@ -157,6 +161,7 @@ map H cd ~
 map g top
 map D delete
 map E extract
+map Z zipup
 map C copyto
 map M moveto
 map <c-n> push :mkdir<space>""<left>
