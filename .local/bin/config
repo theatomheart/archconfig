@@ -1,7 +1,7 @@
 #!/bin/sh
 # A menu script for quickly editing common config files
 
-MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nxprofile\nzathura"
+MenuChoices="alias\nbash\nlf\nmpd\nmpv\nncmpcpp\nnewsboat\nprofile\nrss\nssh\ntmux\nvim\nxprofile\nzathura"
 
 chosen=$1
 
@@ -19,6 +19,7 @@ case $chosen in
 	rss)		$EDITOR ~/.config/newsboat/urls ;;
 	ssh)		$EDITOR ~/.ssh/config ;;
 	tmux)		$EDITOR ~/.config/tmux/tmux.conf ;;
+	vim)		$EDITOR ~/.config/nvim/init.vim ;;
 	xprofile)	$EDITOR ~/.config/x11/xprofile ;;
 	zathura)	$EDITOR ~/.config/zathura/zathurarc ;;
 #	appearance)	lxappearance &disown ;;
