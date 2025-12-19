@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# Sometimes AUR helper 'yay' break.
+# This script will fix it.
+
+rm -rf $HOME/Downloads/yay
+cd $HOME/Downloads
+git clone https://aur.archlinux.org/yay.git
+cd $HOME/Downloads/yay
+makepkg --noconfirm -si
