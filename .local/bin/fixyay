@@ -5,6 +5,8 @@
 
 rm -rf $HOME/Downloads/yay
 cd $HOME/Downloads
-git clone https://aur.archlinux.org/yay.git
+git clone https://aur.archlinux.org/yay.git &>/dev/null
 cd $HOME/Downloads/yay
 makepkg --noconfirm -si
+cd $HOME
+rm -rf $HOME/Downloads/yay
