@@ -29,8 +29,7 @@ alias \
 	yt="yt-dlp --embed-metadata -i" \
 	yta="yt -x -f bestaudio/best" \
 	ytt="yt --skip-download --write-thumbnail" \
-	ffmpeg="ffmpeg -hide_banner" \
-	newnet="sudo systemctl restart NetworkManager"
+	ffmpeg="ffmpeg -hide_banner"
 
 # Colorize commands when possible.
 alias \
@@ -43,6 +42,7 @@ alias \
 # These common commands are just too long! Abbreviate them.
 alias \
 	tmux="tmux -f ~/.config/tmux/tmux.conf" \
+	newnet="sudo systemctl restart NetworkManager" \
 	maps="telnet mapscii.me" \
 	ka="killall" \
 	g="git" \
